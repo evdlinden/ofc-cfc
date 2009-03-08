@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="ofc-cfc.refactoring" default="do.refactor" basedir="../">
+    <description>
+    	This ant task will refactor ofc-cfc cfc's
+    </description>
+		
+	<!--Prefix Target-->
+	<target name="do.prefix" description="Choose the new ofc prefix">
+		<input message="Please enter a refactoring cfc prefix for openflashchart paths, use dot notation: example=myapp.model.ofc-cfc."
+			   addproperty="ofc-cfc.cfc_prefix" />
+    </target>
+	
+	<!-- Refactor ofc-cfc cfc's -->
+	<target name="do.refactor" depends="do.prefix" description="refactor the code">
+		<echo>Refactoring for ofc-cfc cfc paths</echo>
+		<replace dir="${basedir}" value="${ofc-cfc.cfc_prefix}" summary="yes">
+		  	<include name="**/*.cfc" />
+			<include name="**/*.cfm" />
+			<replacetoken>ofc-cfc.</replacetoken>
+		</replace>
+	</target>
+
+</project>
