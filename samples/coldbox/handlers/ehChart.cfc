@@ -21,8 +21,6 @@
 		<!--- jQuery --->
 		<cfset Event.setView("jqueryChart")>
 		
-		<!--- When using SPRY-plugin, enable following: 
-		<cfset Event.setView("spryChart")> --->
 	</cffunction>
 
 	<cffunction name="getBarChartData" access="public" returntype="string" output="false" hint="Returns JSON data">
